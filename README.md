@@ -1,8 +1,4 @@
-# ai-memory-installer
-
-<p align="center">
-  <img src="assets/logo.svg" alt="ai-memory-installer logo" width="128" />
-</p>
+<h1 align="center">🧠 ai-memory-installer</h1>
 
 Instalador CLI (bash) para distribuir o setup do [**ai-memory**](https://github.com/akitaonrails/ai-memory),
 do [Akita](https://github.com/akitaonrails), num único servidor — VPS Ubuntu exposto via

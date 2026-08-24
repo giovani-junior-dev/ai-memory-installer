@@ -182,8 +182,7 @@ compose_up() {
 
 verify_local() {
   log "aguardando healthcheck..."
-  local i
-  for i in $(seq 1 20); do
+  for _ in $(seq 1 20); do
     if docker compose -f "$COMPOSE_FILE" --env-file "$ENV_FILE" ps 2>/dev/null | grep -q 'healthy'; then
       log "container ai-memory saudável."
       return
