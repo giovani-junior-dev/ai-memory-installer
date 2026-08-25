@@ -87,6 +87,33 @@ ai-memory status
 
 ---
 
+## Já tem o ai-memory rodando local? (reapontar pro remoto)
+
+Se a máquina já tem o ai-memory instalado e rodando local (Docker Desktop ou só o wrapper),
+não precisa reinstalar — só **reapontar** pro servidor remoto:
+
+```bash
+curl -fsSL https://raw.githubusercontent.com/giovani-junior-dev/ai-memory-installer/main/repoint-to-remote.sh | bash
+```
+
+O script detecta o wrapper e o clone local do repo Akita, atualiza os dois, e reescreve a
+config MCP de cada agente pra apontar pro remoto. Pede só a **URL** e o **token**.
+
+Não-interativo:
+
+```bash
+AI_MEMORY_SERVER_URL=https://memory.seualuno.com \
+AI_MEMORY_AUTH_TOKEN=<TOKEN> \
+curl -fsSL https://raw.githubusercontent.com/giovani-junior-dev/ai-memory-installer/main/repoint-to-remote.sh | bash -s -- --yes --agents claude-code,grok
+```
+
+Use `--stop-local` pra parar o container Docker local junto (evita duas memórias divergindo).
+
+Prefere deixar um agente (Claude Code / Codex) fazer isso sozinho na máquina? Cole o prompt de
+[`docs/repoint-agent-prompt.md`](docs/repoint-agent-prompt.md).
+
+---
+
 ## O que o hardening faz (e por que é seguro)
 
 Ordem crítica, nesta ordem exata:
